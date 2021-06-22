@@ -80,6 +80,7 @@ public class CourseDetailsEndPoint {
     @ResponsePayload
     public DeleteCourseDetailsResponse save(@RequestPayload DeleteCourseDetailsRequest request) {
 
+        System.out.println("ID: "+request.getId());
         courseRepository.deleteById(request.getId());
 
         DeleteCourseDetailsResponse courseDetailsResponse = new DeleteCourseDetailsResponse();
