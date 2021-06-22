@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsResponse
+        xmlns="http://schoolsoapapi.edu.com/courses"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schoolsoapapi.edu.com/courses course-details.xsd">
+    <courseDetails>
+        <id>1</id>
+        <name>Quantum Computing</name>
+        <description>Learn Quantum in depth</description>
+    </courseDetails>
+</GetCourseDetailsResponse>
