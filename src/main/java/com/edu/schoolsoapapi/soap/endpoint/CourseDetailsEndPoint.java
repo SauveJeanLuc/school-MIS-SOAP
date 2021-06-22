@@ -10,6 +10,7 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import java.util.List;
+import java.util.Optional;
 
 @Endpoint
 public class CourseDetailsEndPoint {
@@ -40,12 +41,67 @@ public class CourseDetailsEndPoint {
         return allCourseDetailsResponse;
     }
 
+
+    @PayloadRoot(namespace = "http://schoolsoapapi.edu.com/courses", localPart = "CreateCourseDetailsRequest")
+    @ResponsePayload
+    public CreateCourseDetailsResponse save(@RequestPayload CreateCourseDetailsRequest request) {
+        courseRepository.save(new Course(request.getCourseDetails().getId(),
+                request.getCourseDetails().getName(),
+                request.getCourseDetails().getDescription()
+        ));
+
+        CreateCourseDetailsResponse courseDetailsResponse = new CreateCourseDetailsResponse();
+        courseDetailsResponse.setCourseDetails(request.getCourseDetails());
+        courseDetailsResponse.setMessage("Created Successfully");
+        return courseDetailsResponse;
+    }
+
+    @PayloadRoot(namespace = "http://schoolsoapapi.edu.com/courses", localPart = "UpdateCourseDetailsRequest")
+    @ResponsePayload
+    public UpdateCourseDetailsResponse update(@RequestPayload UpdateCourseDetailsRequest request) {
+        UpdateCourseDetailsResponse courseDetailsResponse = null;
+        Optional<Course> existingCourse = this.courseRepository.findById(request.getCourseDetails().getId());
+        if(existingCourse.isEmpty() || existingCourse == null) {
+            courseDetailsResponse = mapCourseDetail(null, "Id not found");
+        }
+        if(existingCourse.isPresent()) {
+
+            Course _course = existingCourse.get();
+            _course.setName(request.getCourseDetails().getName());
+            _course.setDescription(request.getCourseDetails().getDescription());
+            courseRepository.save(_course);
+            courseDetailsResponse = mapCourseDetail(_course, "Updated successfully");
+
+        }
+        return courseDetailsResponse;
+    }
+
+    @PayloadRoot(namespace = "http://schoolsoapapi.edu.com/courses", localPart = "DeleteCourseDetailsRequest")
+    @ResponsePayload
+    public DeleteCourseDetailsResponse save(@RequestPayload DeleteCourseDetailsRequest request) {
+
+        courseRepository.deleteById(request.getId());
+
+        DeleteCourseDetailsResponse courseDetailsResponse = new DeleteCourseDetailsResponse();
+        courseDetailsResponse.setMessage("Deleted Successfully");
+        return courseDetailsResponse;
+    }
+
     private GetCourseDetailsResponse mapCourseDetails(Course course){
         CourseDetails courseDetails = mapCourse(course);
 
         GetCourseDetailsResponse courseDetailsResponse = new GetCourseDetailsResponse();
 
         courseDetailsResponse.setCourseDetails(courseDetails);
+        return courseDetailsResponse;
+    }
+
+    private UpdateCourseDetailsResponse mapCourseDetail(Course course, String message) {
+        CourseDetails courseDetails = mapCourse(course);
+        UpdateCourseDetailsResponse courseDetailsResponse = new UpdateCourseDetailsResponse();
+
+        courseDetailsResponse.setCourseDetails(courseDetails);
+        courseDetailsResponse.setMessage(message);
         return courseDetailsResponse;
     }
 
