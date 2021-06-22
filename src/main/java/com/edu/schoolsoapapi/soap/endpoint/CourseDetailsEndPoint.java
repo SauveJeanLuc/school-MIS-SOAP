@@ -17,7 +17,7 @@ public class CourseDetailsEndPoint {
     @Autowired
     private ICourseRepository courseRepository;
 
-    @PayloadRoot(namespace = "http://soapdemo.example.com/courses", localPart = "GetCourseDetailsRequest")
+    @PayloadRoot(namespace = "http://schoolsoapapi.edu.com/courses", localPart = "GetCourseDetailsRequest")
     @ResponsePayload
     public GetCourseDetailsResponse findById(@RequestPayload GetCourseDetailsRequest request) {
 
@@ -27,7 +27,7 @@ public class CourseDetailsEndPoint {
         return  courseDetailsResponse;
     }
 
-    @PayloadRoot(namespace = "http://soapdemo.example.com/courses", localPart = "GetAllCourseDetailsRequest")
+    @PayloadRoot(namespace = "http://schoolsoapapi.edu.com/courses", localPart = "GetAllCourseDetailsRequest")
     @ResponsePayload
     public GetAllCourseDetailsResponse findAll(@RequestPayload GetAllCourseDetailsRequest request){
         GetAllCourseDetailsResponse allCourseDetailsResponse = new GetAllCourseDetailsResponse();
