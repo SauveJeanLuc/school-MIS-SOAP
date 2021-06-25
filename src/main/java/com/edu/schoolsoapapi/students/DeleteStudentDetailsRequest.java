@@ -6,7 +6,7 @@
 //
 
 
-package com.edu.schoolsoapapi.courses;
+package com.edu.schoolsoapapi.students;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,16 +37,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "id"
 })
-@XmlRootElement(name = "GetCourseDetailsRequest")
-public class GetCourseDetailsRequest {
+@XmlRootElement(name = "DeleteStudentDetailsRequest")
+public class DeleteStudentDetailsRequest {
 
-    protected int id;
+    protected long id;
 
     /**
      * Gets the value of the id property.
      * 
      */
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -54,7 +54,7 @@ public class GetCourseDetailsRequest {
      * Sets the value of the id property.
      * 
      */
-    public void setId(int value) {
+    public void setId(long value) {
         this.id = value;
     }
 

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schoolsoapapi.edu.com/students"
+           xmlns:tns="http://schoolsoapapi.edu.com/students"
+           elementFormDefault="qualified">
+
+
+    <xs:element name="GetStudentDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetStudentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentDetails" type="tns:StudentDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="GetAllStudentDetailsRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAllStudentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentDetails" type="tns:StudentDetails" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:element name="CreateStudentDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentDetails" type="tns:StudentDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateStudentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentDetails" type="tns:StudentDetails"/>
+                <xs:element name="message" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:element name="UpdateStudentDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentDetails" type="tns:StudentDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateStudentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentDetails" type="tns:StudentDetails"/>
+                <xs:element name="message" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:element name="DeleteStudentDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DeleteStudentDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+<!--                <xs:element name="studentDetails" type="tns:StudentDetails"/>-->
+                <xs:element name="message" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="StudentDetails">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="courseId" type="xs:int"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

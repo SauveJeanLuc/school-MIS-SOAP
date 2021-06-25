@@ -6,10 +6,11 @@
 //
 
 
-package com.edu.schoolsoapapi.courses;
+package com.edu.schoolsoapapi.students;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="studentDetails" type="{http://schoolsoapapi.edu.com/students}StudentDetails"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id"
+    "studentDetails"
 })
-@XmlRootElement(name = "GetCourseDetailsRequest")
-public class GetCourseDetailsRequest {
+@XmlRootElement(name = "CreateStudentDetailsRequest")
+public class CreateStudentDetailsRequest {
 
-    protected int id;
+    @XmlElement(required = true)
+    protected StudentDetails studentDetails;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the studentDetails property.
      * 
+     * @return
+     *     possible object is
+     *     {@link StudentDetails }
+     *     
      */
-    public int getId() {
-        return id;
+    public StudentDetails getStudentDetails() {
+        return studentDetails;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the studentDetails property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link StudentDetails }
+     *     
      */
-    public void setId(int value) {
-        this.id = value;
+    public void setStudentDetails(StudentDetails value) {
+        this.studentDetails = value;
     }
 
 }

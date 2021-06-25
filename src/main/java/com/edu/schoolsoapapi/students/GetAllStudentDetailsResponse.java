@@ -6,7 +6,7 @@
 //
 
 
-package com.edu.schoolsoapapi.courses;
+package com.edu.schoolsoapapi.students;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="courseDetails" type="{http://schoolsoapapi.edu.com/courses}CourseDetails" maxOccurs="unbounded"/>
+ *         &lt;element name="studentDetails" type="{http://schoolsoapapi.edu.com/students}StudentDetails" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,41 +38,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "courseDetails"
+    "studentDetails"
 })
-@XmlRootElement(name = "GetAllCourseDetailsResponse")
-public class GetAllCourseDetailsResponse {
+@XmlRootElement(name = "GetAllStudentDetailsResponse")
+public class GetAllStudentDetailsResponse {
 
     @XmlElement(required = true)
-    protected List<CourseDetails> courseDetails;
+    protected List<StudentDetails> studentDetails;
 
     /**
-     * Gets the value of the courseDetails property.
+     * Gets the value of the studentDetails property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the courseDetails property.
+     * This is why there is not a <CODE>set</CODE> method for the studentDetails property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCourseDetails().add(newItem);
+     *    getStudentDetails().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CourseDetails }
+     * {@link StudentDetails }
      * 
      * 
      */
-    public List<CourseDetails> getCourseDetails() {
-        if (courseDetails == null) {
-            courseDetails = new ArrayList<CourseDetails>();
+    public List<StudentDetails> getStudentDetails() {
+        if (studentDetails == null) {
+            studentDetails = new ArrayList<StudentDetails>();
         }
-        return this.courseDetails;
+        return this.studentDetails;
     }
 
 }

@@ -5,5 +5,5 @@
 // Generated on: 2021.06.25 at 11:32:53 AM SAST 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://schoolsoapapi.edu.com/courses", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package com.edu.schoolsoapapi.courses;
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://schoolsoapapi.edu.com/students", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.edu.schoolsoapapi.students;

@@ -15,6 +15,7 @@ import java.util.Optional;
 @Endpoint
 public class CourseDetailsEndPoint {
 
+
     @Autowired
     private ICourseRepository courseRepository;
 
@@ -78,7 +79,7 @@ public class CourseDetailsEndPoint {
 
     @PayloadRoot(namespace = "http://schoolsoapapi.edu.com/courses", localPart = "DeleteCourseDetailsRequest")
     @ResponsePayload
-    public DeleteCourseDetailsResponse save(@RequestPayload DeleteCourseDetailsRequest request) {
+    public DeleteCourseDetailsResponse delete(@RequestPayload DeleteCourseDetailsRequest request) {
 
         System.out.println("ID: "+request.getId());
         courseRepository.deleteById(request.getId());
